@@ -26,7 +26,45 @@
 
 <body class="poppins-font">
 
-    <h1>Welcome to English Janala</h1>
+    <!-- Navbar -->
+    <nav class="navbar bg-base-100 shadow-sm bg-[#BADEFF26] px-10">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                    <div class="menu menu-horizontal px-1 flex flex-col gap-3">
+                        <button class="btn text-[#422AD5] border border-[#422AD5]"><i
+                                class="fa-solid fa-circle-question"></i> FAQ</button>
+                        <button class="btn text-[#422AD5] border border-[#422AD5]"><i
+                                class="fa-solid fa-book-open"></i>Learn</button>
+                        <button class="btn text-[#422AD5] border border-[#422AD5] "><i
+                                class="fa-solid fa-right-from-bracket"></i> Logout</button>
+                    </div>
+                </ul>
+            </div>
+            <div class="flex items-center gap-1">
+                <h1 class="font-semibold">English</h1>
+                <img src="./assets/logo.png" alt="">
+                <h1 class="bangla-font font-medium">জানালা</h1>
+            </div>
+        </div>
+        <div class="navbar-end hidden lg:flex">
+            <div class="menu menu-horizontal px-1">
+                <button class="btn text-[#422AD5] border border-[#422AD5]"><i class="fa-solid fa-circle-question"></i>
+                    FAQ</button>
+                <button class="btn text-[#422AD5] border border-[#422AD5] ml-3"><i
+                        class="fa-solid fa-book-open"></i>Learn</button>
+                <button class="btn text-[#422AD5] border border-[#422AD5] ml-3"><i
+                        class="fa-solid fa-right-from-bracket"></i> Logout</button>
+            </div>
+        </div>
+    </nav>
 
 </body>
 
