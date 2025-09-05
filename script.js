@@ -1,3 +1,8 @@
+const displaySynonyms = (arr) => {
+    const display = arr.map((el) => `<span class="btn">${el}</span>`);
+    return display.join(" ");
+}
+
 const loadAllLesson = () => {
     const url = "https://openapi.programming-hero.com/api/levels/all";
     fetch(url)
@@ -47,9 +52,7 @@ const displayWordDetails = (word) => {
                     <div>
                         <h1 class="bangla-font font-semibold text-[24px]">সমার্থক শব্দ গুলো</h1>
                         <div class="flex items-center gap-2">
-                            <span class="btn">syn</span>
-                            <span class="btn">syn</span>
-                            <span class="btn">syn</span>
+                            ${displaySynonyms(word.synonyms)}
                         </div>
                     </div>
 
