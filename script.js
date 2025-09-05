@@ -12,6 +12,52 @@ const removeActive = () => {
     activeLesson.forEach((btn) => btn.classList.remove("active"));
 }
 
+// Load Word Details
+const loadWordDetails = async (id) =>{
+    const url =`https://openapi.programming-hero.com/api/word/${id}`;
+
+    const res = await fetch(url);
+    const wordDetails = await res.json();
+    displayWordDetails(wordDetails.data);
+    
+}
+
+// "data":{"word":"Eager","meaning":"আগ্রহী","pronunciation":"ইগার","level":1,"sentence":"The kids were eager to open their gifts.","points":1,"partsOfSpeech":"adjective","synonyms":["enthusiastic","excited","keen"],"id":5}
+
+const displayWordDetails = (word) => {
+    console.log(word);
+    const modalContainer = document.getElementById('modal-container');
+    modalContainer.innerHTML = `
+    <div class="space-y-3">
+                    <div>
+                        <h3 class="font-semibold text-[36px]"> ${word.word} (<span><i
+                                    class="fa-solid fa-microphone-lines"></i></span>:${word.meaning})</h3>
+                    </div>
+
+                    <div>
+                        <h1 class="font-semibold text-[24px]">Meaning</h1>
+                        <p class="bangla-font font-medium text-[24px]">${word.meaning}</p>
+                    </div>
+
+                    <div>
+                        <h1 class="font-semibold text-[24px]">Example</h1>
+                        <p class="bangla-font font-medium text-[24px]">${word.sentence}</p>
+                    </div>
+
+                    <div>
+                        <h1 class="bangla-font font-semibold text-[24px]">সমার্থক শব্দ গুলো</h1>
+                        <div class="flex items-center gap-2">
+                            <span class="btn">syn</span>
+                            <span class="btn">syn</span>
+                            <span class="btn">syn</span>
+                        </div>
+                    </div>
+
+                </div>
+     `;
+    document.getElementById('show_modal').showModal();
+}
+
 const loadAllWord = (id) => {
     url = `https://openapi.programming-hero.com/api/level/${id}`;
     fetch(url)
@@ -47,7 +93,7 @@ const displayAllWord = (words) => {
                 <p class="inter-font font-medium text-[20px]">Meaning /Pronounciation</p>
                 <p class="bangla-font font-semibold text-[32px]">"${word.meaning ? word.meaning : "meaning পাওয়া যায়নি"} / ${word.pronunciation ? word.pronunciation : "pronunciation পাওয়া যায়নি"}"</p>
                 <div class="mt-[56px] flex justify-between items-center mb-[56px] mx-[56px]">
-                    <div class="w-[56px] p-3 bg-[#1A91FF20] rounded-[10px]">
+                    <div onclick="loadWordDetails(${word.id})" class="w-[56px] p-3 bg-[#1A91FF20] rounded-[10px]">
                         <i class="fa-solid fa-circle-info"></i>
                     </div>
                     <div class="w-[56px] p-3 bg-[#1A91FF20] rounded-[10px]">
