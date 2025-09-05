@@ -140,3 +140,24 @@ const displayAllLesson = (lessons) => {
     });
 }
 loadAllLesson();
+
+// Search
+document.getElementById("button-search").addEventListener('click', () => {
+    const textSearch = document.getElementById("text-search");
+    const textSearchValue = textSearch.value.trim().toLowerCase();
+    console.log(textSearchValue)
+    
+    const url = "https://openapi.programming-hero.com/api/words/all";
+
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+        const allWords = data.data;
+        console.log(allWords);
+        const filterWords = allWords.filter((word) =>{
+            return word.word.toLowerCase().includes(textSearchValue);
+        });
+        displayAllWord(filterWords);
+    });
+    
+});

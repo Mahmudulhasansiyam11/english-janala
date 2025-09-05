@@ -102,10 +102,23 @@
             </div>
         </section>
 
+        <!-- Add search -->
+        <section class="flex justify-center mt-5">
+            <div class="join">
+                <div>
+                    <label class="input validator join-item">
+                        <input id="text-search" type="text" placeholder="Search Vocabulary Now" required />
+                    </label>
+                    <div class="validator-hint hidden">Enter valid email address</div>
+                </div>
+                <input id="button-search" type="button" value="Submit" class="w-35 btn btn-primary">
+            </div>
+        </section>
+
         <!-- Add Spinner -->
-         <section id="spinner" class="flex justify-center mt-5 hidden">
+        <section id="spinner" class="flex justify-center mt-5 hidden">
             <span class="loading loading-bars loading-xl"></span>
-         </section>
+        </section>
 
         <!-- Load Words by Level and Display Cards -->
 
@@ -123,7 +136,7 @@
         <dialog id="show_modal" class="modal modal-bottom sm:modal-middle">
             <div class="modal-box">
                 <div id="modal-container">
-                    
+
                 </div>
                 <div class="modal-action">
                     <form method="dialog">
@@ -143,5 +156,3 @@
 </body>
 
 </html>
-
-
