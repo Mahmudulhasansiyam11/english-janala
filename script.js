@@ -3,6 +3,13 @@ const displaySynonyms = (arr) => {
     return display.join(" ");
 }
 
+// speak vocabulary
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
+
 const loadAllLesson = () => {
     const url = "https://openapi.programming-hero.com/api/levels/all";
     fetch(url)
@@ -113,7 +120,7 @@ const displayAllWord = (words) => {
                     <div onclick="loadWordDetails(${word.id})" class="w-[56px] p-3 bg-[#1A91FF20] rounded-[10px]">
                         <i class="fa-solid fa-circle-info"></i>
                     </div>
-                    <div class="w-[56px] p-3 bg-[#1A91FF20] rounded-[10px]">
+                    <div onclick="pronounceWord('${word.word}')" class="w-[56px] p-3 bg-[#1A91FF20] rounded-[10px]">
                         <i class="fa-solid fa-volume-high"></i>
                     </div>
                 </div>
