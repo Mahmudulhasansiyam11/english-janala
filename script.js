@@ -27,7 +27,17 @@ const loadWordDetails = async (id) =>{
     
 }
 
-// "data":{"word":"Eager","meaning":"আগ্রহী","pronunciation":"ইগার","level":1,"sentence":"The kids were eager to open their gifts.","points":1,"partsOfSpeech":"adjective","synonyms":["enthusiastic","excited","keen"],"id":5}
+//Spinner
+const manageSpinner = (status) => {
+    if(status == true){
+        document.getElementById('spinner').classList.remove("hidden");
+        document.getElementById('word-container').classList.add("hidden");
+    }
+    else{
+        document.getElementById('word-container').classList.remove("hidden");
+        document.getElementById('spinner').classList.add("hidden");
+    }
+}
 
 const displayWordDetails = (word) => {
     console.log(word);
@@ -62,6 +72,7 @@ const displayWordDetails = (word) => {
 }
 
 const loadAllWord = (id) => {
+    manageSpinner(true);
     url = `https://openapi.programming-hero.com/api/level/${id}`;
     fetch(url)
     .then(res => res.json())
@@ -72,6 +83,7 @@ const loadAllWord = (id) => {
         displayAllWord(data.data);
         console.log(data.data);
     });
+    
 }
 
 const displayAllWord = (words) => {
@@ -86,6 +98,8 @@ const displayAllWord = (words) => {
                 <p class="font-medium text-[30px] mt-2">নেক্সট Lesson এ যান</p>
             </div>
         `;
+        manageSpinner(false);
+        return;
     }
 
     words.forEach(word => {
@@ -107,6 +121,7 @@ const displayAllWord = (words) => {
         `;
         wordContainer.appendChild(displayWord);
     });
+    manageSpinner(false);
 }
 
 const displayAllLesson = (lessons) => {
